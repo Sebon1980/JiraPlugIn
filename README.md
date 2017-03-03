@@ -7,8 +7,8 @@ Sebastian Neumann
 ## Requirements
 ### nodemodules
 nodejs
-jira-connector
-express
+jira-connector,
+express,
 lodash
 
 
