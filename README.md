@@ -6,7 +6,7 @@ Sebastian Neumann
 
 ## Requirements
 ### nodemodules
-nodejs
+nodejs,
 jira-connector,
 express,
 lodash
