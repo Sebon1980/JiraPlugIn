@@ -1,7 +1,7 @@
 # JiraPlugIn
 graduation work 
 
-# Author
+## Author
 Sebastian Neumann
 
 
