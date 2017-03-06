@@ -10,7 +10,12 @@ const testJira = new Jira(config.jira);
     }).catch(e => console.log(e));
 */
 
-testJira.getDetailsOfBoard(1)
+/*testJira.getDetailsOfBoard(1)
+    .then(result => {
+        console.log(result);
+    }).catch(e => console.log(e));*/
+
+testJira.getIssuesOfBoard(1)
     .then(result => {
         console.log(result);
     }).catch(e => console.log(e));
