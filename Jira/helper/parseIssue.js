@@ -19,7 +19,6 @@ module.exports = function parseIssue(data) {
             sprintName: currentIssue.fields.sprint ? currentIssue.fields.sprint.name : 'not listed in sprint',
             sprintAdress: currentIssue.fields.sprint ? currentIssue.fields.sprint.self : 'not listed in sprint',
             assigneeName: currentIssue.fields.assignee ? currentIssue.fields.assignee.displayName : 'no assignee',
-
         }
         Issues.push(issue);
     })

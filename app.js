@@ -1,6 +1,7 @@
 const Jira = require('./Jira/Jira')
 const config = require('./config');
 
+const selectIssuesBy = require('./Jira/helper/selectIssuesBy')
 const testJira = new Jira(config.jira);
 
 
@@ -15,10 +16,10 @@ const testJira = new Jira(config.jira);
         console.log(result);
     }).catch(e => console.log(e));*/
 
-testJira.getIssuesOfBoard(1)
+/*testJira.getIssuesOfBoard(1)
     .then(result => {
         console.log(result);
-    }).catch(e => console.log(e));
+    }).catch(e => console.log(e));*/
 
 /*testJira.getAllVersions(10000)
     .then(result => {
@@ -26,8 +27,14 @@ testJira.getIssuesOfBoard(1)
     }).catch(e => console.log(e));
 */
 
-/*testJira.getDetailsOfVersion(10000)
+testJira.getDetailsOfVersion(10000)
     .then(result => {
         console.log(result);
     }).catch(e => console.log(e));
-*/
+
+
+/*testJira.selectIssuesBy(1, { epicId: 10104 })
+    .then(result => {
+        console.log(result)
+    })
+    .catch(e => console.log(e));*/
