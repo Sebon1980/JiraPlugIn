@@ -27,14 +27,14 @@ const testJira = new Jira(config.jira);
     }).catch(e => console.log(e));
 */
 
-testJira.getDetailsOfVersion(10000)
+/*testJira.getDetailsOfVersion(10000)
     .then(result => {
         console.log(result);
     }).catch(e => console.log(e));
+*/
 
-
-/*testJira.selectIssuesBy(1, { epicId: 10104 })
+testJira.selectIssuesBy(1, { sprintId: 4 })
     .then(result => {
         console.log(result)
     })
-    .catch(e => console.log(e));*/
+    .catch(e => console.log(e));
