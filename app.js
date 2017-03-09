@@ -1,7 +1,7 @@
 const Jira = require('./Jira/Jira')
 const config = require('./config');
 
-const selectIssuesBy = require('./Jira/helper/selectIssuesBy')
+
 const testJira = new Jira(config.jira);
 
 
@@ -33,8 +33,11 @@ const testJira = new Jira(config.jira);
     }).catch(e => console.log(e));
 */
 
-testJira.selectIssuesBy(1, { sprintId: 4 })
+testJira.selectIssuesBy(1, { epicId: 10100 })
     .then(result => {
+        if (result.length === 0) {
+            return console.log('Select parameter doesn´t exist')
+        }
         console.log(result)
     })
     .catch(e => console.log(e));

@@ -58,11 +58,15 @@ class Jira {
     }
 
     selectIssuesBy(boardId, params) {
+
         return this.getIssuesOfBoard(boardId)
             .then(result => {
-                return selectIssuesBy(params, result)
+                return selectIssuesBy(params, result);
             })
+            .catch(err => console.log(err))
+
     }
+
 }
 
 module.exports = Jira;

@@ -1,4 +1,4 @@
 module.exports = {
     parseIssue: require('./parseIssue'),
-    selectIssuesBy: require('./selectIssuesBy')
+    selectIssuesBy: require('./selectIssuesBy'),
 };
