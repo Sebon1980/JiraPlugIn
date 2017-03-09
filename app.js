@@ -33,7 +33,7 @@ const testJira = new Jira(config.jira);
     }).catch(e => console.log(e));
 */
 
-testJira.selectIssuesBy(1, { epicId: 10100 })
+testJira.selectIssuesBy(1, { sprintId: 4 })
     .then(result => {
         if (result.length === 0) {
             return console.log('Select parameter doesn´t exist')
