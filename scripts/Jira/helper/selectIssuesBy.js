@@ -1,4 +1,6 @@
 var _ = require('lodash');
 module.exports = function selectIssuesBy(params, data) {
-    return _.filter(data, _.matches(params));
+    const selectedIssue = _.filter(data.issues, _.matches(params));
+    data.issues = selectedIssue;
+    return data;
 }

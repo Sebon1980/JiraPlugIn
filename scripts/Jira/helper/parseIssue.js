@@ -1,7 +1,25 @@
 module.exports = function parseIssue(data) {
-    var issues = []
+    const allIssues = {
+        total: 0,
+        done: 0,
+        inProgress: 0,
+        toDo: 0,
+        issues: []
+    }
 
     data.issues.forEach((currentIssue) => {
+        allIssues.total++;
+        switch (currentIssue.fields.status.name) {
+            case "In Progress":
+                allIssues.inProgress++;
+                break;
+            case "To Do":
+                allIssues.toDo++;
+                break;
+            default:
+                allIssues.done++;
+                break;
+        }
 
         var issue = {
             issueId: currentIssue.id,
@@ -20,8 +38,8 @@ module.exports = function parseIssue(data) {
             sprintAdress: currentIssue.fields.sprint ? currentIssue.fields.sprint.self : 'not listed in sprint',
             assigneeName: currentIssue.fields.assignee ? currentIssue.fields.assignee.displayName : 'no assignee',
         }
-        issues.push(issue);
+        allIssues.issues.push(issue);
     })
-    return issues
+    return allIssues
 
 }

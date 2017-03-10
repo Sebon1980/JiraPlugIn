@@ -19,8 +19,8 @@ const testJira = new Jira(config.jira);
     .then(result => {
         console.log(result);
     }).catch(e => console.log(e));*/
-
-/*testJira.getAllVersions(10000)
+/*
+testJira.getAllVersions(10000)
     .then(result => {
         console.log(result);
     }).catch(e => console.log(e));
@@ -30,10 +30,11 @@ const testJira = new Jira(config.jira);
     .then(result => {
         console.log(result);
     }).catch(e => console.log(e));
-*/
 
-testJira.selectIssuesBy(1, { sprintId: 4 })
+*/
+testJira.selectIssuesBy(1, { versionId: '10000' })
     .then(result => {
+        console.log(result)
         if (result.length === 0) {
             return console.log('Select parameter doesn´t exist')
         }
