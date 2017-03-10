@@ -1,24 +1,26 @@
 {
-    "name": "jiraplugin",
-    "version": "0.0.1",
-    "description": "graduation work",
-    "main": "app.js",
-    "scripts": {
-        "test": "foobar"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Sebon1980/JiraPlugIn.git"
-    },
-    "author": "Sebastian Neumann",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Sebon1980/JiraPlugIn/issues"
-    },
-    "homepage": "https://github.com/Sebon1980/JiraPlugIn#readme",
-    "dependencies": {
-        "express": "^4.15.0",
-        "jira-connector": "git+https://github.com/floralvikings/jira-connector.git",
-        "lodash": "^4.17.4"
-    }
+  "name": "jiraplugin",
+  "version": "0.0.1",
+  "description": "graduation work",
+  "main": "app.js",
+  "scripts": {
+    "test": "foobar"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sebon1980/JiraPlugIn.git"
+  },
+  "author": "Sebastian Neumann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sebon1980/JiraPlugIn/issues"
+  },
+  "homepage": "https://github.com/Sebon1980/JiraPlugIn#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.0",
+    "jira-connector": "git+https://github.com/floralvikings/jira-connector.git",
+    "jquery": "^3.1.1",
+    "lodash": "^4.17.4"
+  }
 }

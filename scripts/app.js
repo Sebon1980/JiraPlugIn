@@ -1,7 +1,6 @@
 const Jira = require('./Jira/Jira')
 const config = require('./config');
 
-
 const testJira = new Jira(config.jira);
 
 
