@@ -5,7 +5,8 @@ module.exports = function getStatus(data) {
         inProgress: 0,
         toDo: 0
     }
-    data.issues.forEach((currentIssue) => {
+    console.log(data, '#########')
+    data.forEach((currentIssue) => {
 
         status.total++;
         switch (currentIssue.status) {
@@ -26,5 +27,5 @@ module.exports = function getStatus(data) {
         inProgress: status.inProgress / status.total * 100,
         toDo: status.toDo / status.total * 100
     }
+    return percents;
 }
-return percents;

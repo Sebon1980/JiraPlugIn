@@ -1,4 +1,5 @@
 const JiraClient = require('jira-connector');
+
 const { parseIssue, selectIssuesBy, getStatus } = require('./helper');
 
 
@@ -68,10 +69,18 @@ class Jira {
 
     }
     getStatus(data) {
-        return this.getStatus(data)
-
+        return getStatus(data)
     }
 
+    getVersions(boardId) {
+        var opts = {
+            boardId,
+            type: "",
+            startAt: 0,
+            maxResults: 25
+        };
+        return this.connector.version.getAllVersions(opts)
+    }
 }
 
 

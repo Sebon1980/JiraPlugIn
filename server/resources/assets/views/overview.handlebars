@@ -24,15 +24,17 @@
                 <th>StartDate</th>
                 <th>ReleaseDate</th>
             </tr>
+            {{#each this}}
             <tr>
-                <td>DummiVersion v0.1</td>
-                <td>Released</td>
-                <td>15%</td>
+                <td>{{versionName}}</td>
+                <td>-</td>
+                <td>{{isDone}}</td>
                 <td>57%</td>
                 <td>28%</td>
                 <td>02-03-2017</td>
                 <td>24-03-2017</td>
             </tr>
+            {{/each}}
             <tr>
                 <td>TestProjekt v0.5</td>
                 <td>Unreleased</td>
@@ -45,5 +47,4 @@
         </table>
     </div>
 </body>
-
 </html>
