@@ -1,25 +1,7 @@
 module.exports = function parseIssue(data) {
-    const allIssues = {
-        total: 0,
-        done: 0,
-        inProgress: 0,
-        toDo: 0,
-        issues: []
-    }
+    const issues = []
 
     data.issues.forEach((currentIssue) => {
-        allIssues.total++;
-        switch (currentIssue.fields.status.name) {
-            case "In Progress":
-                allIssues.inProgress++;
-                break;
-            case "To Do":
-                allIssues.toDo++;
-                break;
-            default:
-                allIssues.done++;
-                break;
-        }
 
         var issue = {
             issueId: currentIssue.id,
@@ -31,6 +13,8 @@ module.exports = function parseIssue(data) {
             versionId: currentIssue.fields.fixVersions ? currentIssue.fields.fixVersions[0].id : 'not signed to any version',
             versionName: currentIssue.fields.fixVersions ? currentIssue.fields.fixVersions[0].name : 'not signed to any version',
             versionAdress: currentIssue.fields.fixVersions ? currentIssue.fields.fixVersions[0].self : 'not signed to any version',
+            isReleased: currentIssue.fields.fixVersions ? currentIssue.fields.fixVersions[0].released : 'not signed to any version',
+            releaseDate: currentIssue.fields.fixVersions ? currentIssue.fields.fixVersions[0].releaseDate : 'not signed to any version',
             epicId: currentIssue.fields.epic ? currentIssue.fields.epic.id : 'not listed in epic',
             epicName: currentIssue.fields.epic ? currentIssue.fields.epic.name : 'not listed in epic',
             sprintId: currentIssue.fields.sprint ? currentIssue.fields.sprint.id : 'not listed in sprint',
@@ -38,8 +22,8 @@ module.exports = function parseIssue(data) {
             sprintAdress: currentIssue.fields.sprint ? currentIssue.fields.sprint.self : 'not listed in sprint',
             assigneeName: currentIssue.fields.assignee ? currentIssue.fields.assignee.displayName : 'no assignee',
         }
-        allIssues.issues.push(issue);
+        issues.push(issue);
     })
-    return allIssues
+    return issues
 
 }

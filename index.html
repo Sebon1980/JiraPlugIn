@@ -6,26 +6,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="styles/main.css" rel="stylesheet">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.css">
 
 </head>
 
 <body>
-    <div name="header" id="header" class="container">
-        <div class="row"><img src="pictures/Kundenlogo-AdversignMedia.png" alt="Company Logo" height="150pt" />
-            <h1>Jira RoadMap</h1>
-            <button class="btn-default">Test</button>
-        </div>
+    <div id="headline">
+        <h1>Adversign Media Jira Overview</h1>
     </div>
-    <div name="content" id="content" class="container">
-
+    <div id="content">
+        <table id="versionTable">
+            <tr>
+                <th>Version Name</th>
+                <th>Status</th>
+                <th>Done</th>
+                <th>inProgress</th>
+                <th>toDo</th>
+                <th>StartDate</th>
+                <th>ReleaseDate</th>
+            </tr>
+            <tr>
+                <td>DummiVersion v0.1</td>
+                <td>Released</td>
+                <td>15%</td>
+                <td>57%</td>
+                <td>28%</td>
+                <td>02-03-2017</td>
+                <td>24-03-2017</td>
+            </tr>
+            <tr>
+                <td>TestProjekt v0.5</td>
+                <td>Unreleased</td>
+                <td>47%</td>
+                <td>38%</td>
+                <td>15%</td>
+                <td>12-03-2017</td>
+                <td>29-03-2017</td>
+            </tr>
+        </table>
     </div>
-    <div name="footer" id="footer" class="container">
-
-    </div>
-
-    <script src="./node_modules/jquery/dist/jquery.js"></script>
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </body>
 
 </html>

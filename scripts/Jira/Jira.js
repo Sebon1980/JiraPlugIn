@@ -1,5 +1,6 @@
 const JiraClient = require('jira-connector');
-const { parseIssue, selectIssuesBy } = require('./helper');
+const { parseIssue, selectIssuesBy, getStatus } = require('./helper');
+
 
 class Jira {
 
@@ -66,7 +67,12 @@ class Jira {
             .catch(err => console.log(err))
 
     }
+    getStatus(data) {
+        return this.getStatus(data)
+
+    }
 
 }
+
 
 module.exports = Jira;

@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/Sebon1980/JiraPlugIn#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
-    "express": "^4.15.0",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "express-joi": "^0.3.1",
     "jira-connector": "git+https://github.com/floralvikings/jira-connector.git",
     "jquery": "^3.1.1",
     "lodash": "^4.17.4"
