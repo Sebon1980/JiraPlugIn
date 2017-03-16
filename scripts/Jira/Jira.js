@@ -81,6 +81,40 @@ class Jira {
         };
         return this.connector.version.getAllVersions(opts)
     }
+
+    getProgressOfVersionsInBoard(boardId) {
+        return new Promise((resolve, reject) => {
+
+            this.getVersions(boardId)
+                .then((versions) => {
+                    let versionList = [];
+                    versions.values.forEach(version => {
+                        versionList.push(this.getDetailsOfVersion(version.id))
+                    });
+
+                    return Promise.all(versionList);
+                })
+                .then((versionList) => {
+                    let issueList = [];
+                    versionList.forEach(version => {
+                        issueList.push(this.selectIssuesBy(boardId, { versionId: version.id }))
+                    });
+                    return Promise.all(issueList);
+                })
+                .then(issueList => {
+                    let progressList = [];
+                    issueList.forEach(issue => {
+                        progressList.push(this.getStatus(issue))
+                    });
+                    resolve(progressList)
+                })
+                .catch(err => {
+                    reject(err);
+                    console.log(err);
+                })
+        })
+
+    }
 }
 
 

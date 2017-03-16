@@ -24,48 +24,18 @@ var test = {
     status: Joi.types.string()
 };
 
-app.use('/', require('../routes'))
-app.set('views', __dirname + '/../server/resources/assets/views/');
-
-app.engine('handlebars', exphbs({
-    layoutsDir: 'server/resources/assets/views/layouts',
-    partialsDir: 'server/resources/assets/views'
-}));
-app.set('view engine', 'handlebars');
-
-
-
 app.get('/show/versions/:boardId', function(req, res) {
 
-    var getDetailsOfVersions = function(versions) {
-        let versionList = [];
-        versions.values.forEach(version => {
-            versionList.push(testJira.getDetailsOfVersion(version.id))
-        });
-        return Promise.all(versionList);
-    }
-    testJira.getVersions(req.params.boardId)
-        .then((versions) => {
-            return getDetailsOfVersions(versions);
+    testJira.getProgressOfVersionsInBoard(req.params.boardId)
+        .then(progress => {
+            console.log(progress)
+            res.send(progress)
+        })
+        .catch(err => {
 
         })
-        .then((versionList) => {
-            let issueList = [];
-            versionList.forEach(version => {
-                console.log(version)
-                issueList.push(testJira.selectIssuesBy(req.params.boardId, { versionId: version.id }))
-            });
-            return Promise.all(issueList);
-        })
-        .then(issueList => {
-            res.render('overview', {});
-            issueList.forEach(issue => {
-                console.log(testJira.getStatus(issue))
-            });
 
-        })
-        .catch(err => { console.log(err) })
-});
+})
 
 app.listen(port, () => {
     console.log(`Server is running at http://${hostname}:${port}/`);
