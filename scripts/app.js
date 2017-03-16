@@ -37,18 +37,18 @@ app.set('view engine', 'handlebars');
 
 app.get('/show/versions/:boardId', function(req, res) {
 
-var getDetailsOfVersions = function(versions){
-  let versionList = [];
-  versions.values.forEach(version => {
-      versionList.push(testJira.getDetailsOfVersion(version.id))
-  });
-  return Promise.all(versionList);
-}
+    var getDetailsOfVersions = function(versions) {
+        let versionList = [];
+        versions.values.forEach(version => {
+            versionList.push(testJira.getDetailsOfVersion(version.id))
+        });
+        return Promise.all(versionList);
+    }
     testJira.getVersions(req.params.boardId)
         .then((versions) => {
-           return getDetailsOfVersions(versions);
+            return getDetailsOfVersions(versions);
 
-        });
+        })
         .then((versionList) => {
             let issueList = [];
             versionList.forEach(version => {
@@ -56,14 +56,14 @@ var getDetailsOfVersions = function(versions){
                 issueList.push(testJira.selectIssuesBy(req.params.boardId, { versionId: version.id }))
             });
             return Promise.all(issueList);
-        });
+        })
         .then(issueList => {
             res.render('overview', {});
             issueList.forEach(issue => {
                 console.log(testJira.getStatus(issue))
             });
 
-        });
+        })
         .catch(err => { console.log(err) })
 });
 
