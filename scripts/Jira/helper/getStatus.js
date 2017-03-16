@@ -5,7 +5,6 @@ module.exports = function getStatus(data) {
         inProgress: 0,
         toDo: 0
     }
-    console.log(data, '#########')
     data.forEach((currentIssue) => {
 
         status.total++;
@@ -22,10 +21,11 @@ module.exports = function getStatus(data) {
         }
     })
     const percents = {
-        total: status.total,
-        done: status.done / status.total * 100,
-        inProgress: status.inProgress / status.total * 100,
-        toDo: status.toDo / status.total * 100
+        total: status.total + ' issues',
+        done: Math.round(parseFloat(status.done / status.total * 100)) + ' %',
+        inProgress: Math.round(parseFloat(status.inProgress / status.total * 100)) + ' %',
+        toDo: Math.round(parseFloat(status.toDo / status.total * 100)) + ' %'
     }
+
     return percents;
 }
