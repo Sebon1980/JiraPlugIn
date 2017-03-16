@@ -34,7 +34,6 @@ app.get('/show/versions/:boardId', function(req, res) {
         .catch(err => {
 
         })
-
 })
 
 app.listen(port, () => {
