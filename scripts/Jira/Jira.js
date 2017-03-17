@@ -13,73 +13,78 @@ class Jira {
      * function to get all Boards of specified Jira account
      * by using npm module "jira-connector"
      */
+
     getAllBoards() {
-            var opts = {
-                type: "",
-                startAt: 0,
-                maxResults: 25
-            };
-            return this.connector.board.getAllBoards(opts)
-        }
-        /**
-         * 
-         * @param {*} boardId 
-         * GET method to return Details of named Board 
-         */
+        var opts = {
+            type: "",
+            startAt: 0,
+            maxResults: 25
+        };
+        return this.connector.board.getAllBoards(opts)
+    }
+
+    /**
+     * 
+     * @param {*} boardId 
+     * GET method to return Details of named Board 
+     */
 
     getDetailsOfBoard(boardId) {
-            var opts = {
-                boardId,
-                type: "",
-                startAt: 0,
-                maxResults: 25
-            };
-            return this.connector.board.getBoard(opts)
-        }
-        /**
-         * GET Method returns all Issues of named board
-         * by using the boardId
-         * @param {*} boardId 
-         */
+        var opts = {
+            boardId,
+            type: "",
+            startAt: 0,
+            maxResults: 25
+        };
+        return this.connector.board.getBoard(opts)
+    }
+
+    /**
+     * GET Method returns all Issues of named board
+     * by using the boardId
+     * @param {*} boardId 
+     */
 
     getIssuesOfBoard(boardId) {
-            var opts = {
-                boardId,
-                type: "",
-                startAt: 0,
-                maxResults: 25
-            };
-            return this.connector.board.getIssuesForBoard(opts)
-                .then(result => parseIssue(result))
-        }
-        /**
-         * GET Method to return all Versions with details of named board
-         * by using the boardId
-         * @param {*} boardId 
-         */
+        var opts = {
+            boardId,
+            type: "",
+            startAt: 0,
+            maxResults: 25
+        };
+        return this.connector.board.getIssuesForBoard(opts)
+            .then(result => parseIssue(result))
+    }
+
+    /**
+     * GET Method to return all Versions with details of named board
+     * by using the boardId
+     * @param {*} boardId 
+     */
 
     getVersions(boardId) {
-            var opts = {
-                boardId,
-                type: "",
-                startAt: 0,
-                maxResults: 25
-            };
+        var opts = {
+            boardId,
+            type: "",
+            startAt: 0,
+            maxResults: 25
+        };
 
-            return this.connector.version.getAllVersions(opts)
-                .then(result => {
-                    let versionList = [];
-                    result.values.forEach(value => {
-                        versionList.push(this.getDetailsOfVersion(value.id))
-                    });
-                    return Promise.all(versionList)
-                })
-        }
-        /**
-         * GET Method to return the details of named version 
-         * by using the versionId
-         * @param {*} versionId 
-         */
+        return this.connector.version.getAllVersions(opts)
+            .then(result => {
+                let versionList = [];
+                result.values.forEach(value => {
+                    versionList.push(this.getDetailsOfVersion(value.id))
+                });
+                return Promise.all(versionList)
+            })
+    }
+
+    /**
+     * GET Method to return the details of named version 
+     * by using the versionId
+     * @param {*} versionId 
+     */
 
     getDetailsOfVersion(versionId) {
         var opts = {
@@ -150,6 +155,11 @@ class Jira {
         })
     }
 
+    /**
+     * GET Method to return the progress of one specific version
+     * of this @param {*} boardId 
+     * selected by this @param {*} versionId 
+     */
     getVersionProgress(boardId, versionId) {
         return new Promise((resolve, reject) => {
 
